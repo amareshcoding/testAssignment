@@ -124,7 +124,7 @@ const PostWidget = ({
 
         <IconButton
           onClick={() => {
-            const uri = `http://localhost:3000/detailpost/${postId}`;
+            const uri = `https://effulgent-pika-2b08e4.netlify.app/detailpost/${postId}`;
             linkCopy(uri);
           }}
         >

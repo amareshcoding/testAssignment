@@ -80,7 +80,7 @@ const Navbar = () => {
             },
           }}
         >
-          SOCIAL APP
+          ASSIGNMENT APP
         </Typography>
         {isMobileScreens && (
           <FlexBetween

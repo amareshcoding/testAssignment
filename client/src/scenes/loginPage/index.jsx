@@ -13,7 +13,7 @@ const LoginPage = () => {
         textAlign="center"
       >
         <Typography fontWeight="bold" fontSize="27px" color="primary">
-          SOCIAL APP
+          ASSIGNMENT APP
         </Typography>
       </Box>
       <Box
@@ -24,7 +24,7 @@ const LoginPage = () => {
         backgroundColor={theme.palette.background.alt}
       >
         <Typography fontWeight="500" variant="h5" sx={{ mb: '1.5rem' }}>
-          Welcome! to Social Application
+          Welcome! to Assignment App
         </Typography>
         <Form />
       </Box>
