@@ -24,5 +24,5 @@ export const items = [
   },
 ];
 
-export const backUri = 'http://localhost:8080/api';
+export const backUri = 'https://testassignmentserver.onrender.com/api';
 // process.env.REACT_APP_BACKEND_HOST ||
