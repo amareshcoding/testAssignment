@@ -21,7 +21,7 @@ const UserWidget = ({ userId }) => {
 
   const { firstName, lastName, occupation, email } = user;
   return (
-    <WidgetWrapper style={{ position: 'sticky', top: 0, zIndex: 4 }}>
+    <WidgetWrapper style={{ position: 'sticky', top: 90, zIndex: 4 }}>
       <FlexBetween
         gap="0.5rem"
         pb="1.1rem"
