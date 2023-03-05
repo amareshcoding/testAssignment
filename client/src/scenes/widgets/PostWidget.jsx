@@ -35,7 +35,8 @@ const PostWidget = ({
   const [commentText, setCommentText] = useState('');
   const token = useSelector((state) => state.token);
   const loggedInUserId = useSelector((state) => state.user._id);
-  const [isLiked, setIsLiked] = useState(false);
+  const isLikedByLoggedInUser = likes.find((like) => like._id === author._id);
+  const [isLiked, setIsLiked] = useState(isLikedByLoggedInUser ? true : false);
 
   const { palette } = useTheme();
   const main = palette.neutral.main;
@@ -51,12 +52,12 @@ const PostWidget = ({
       body: JSON.stringify({ userId: loggedInUserId }),
     });
     const updatedPosts = await response.json();
-    console.log('updatedPosts: ', updatedPosts);
     if (updatedPosts.comment === 'Licked') {
       setIsLiked(true);
     } else {
       setIsLiked(false);
     }
+    setFetchAgain(!fetchAgain);
   };
 
   const patchComment = async () => {
@@ -75,7 +76,7 @@ const PostWidget = ({
       const data = await res.json();
       console.log('data: ', data);
       setCommentText('');
-      
+
       setFetchAgain(!fetchAgain);
     } catch (err) {
       console.log('err: ', err);
@@ -111,7 +112,7 @@ const PostWidget = ({
               )}
             </IconButton>
 
-            <Typography>{isLiked ? likes.length + 1 : likes.length}</Typography>
+            <Typography>{likes.length}</Typography>
           </FlexBetween>
 
           <FlexBetween gap="0.3rem">

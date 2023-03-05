@@ -3,9 +3,6 @@ import { Box, Button, TextField, useMediaQuery, useTheme } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Navbar from 'scenes/navbar';
-import FriendListWidget from 'scenes/widgets/FriendListWidget';
-import MyPostWidget from 'scenes/widgets/MyPostWidget';
-import PostsWidget from 'scenes/widgets/PostsWidget';
 import UserWidget from 'scenes/widgets/UserWidgets';
 import { backUri } from 'utils';
 import { setLogin } from 'store';
@@ -35,10 +32,10 @@ const ProfilePage = () => {
   }, []); //eslint-disable-line react-hooks/exhaustive-deps
 
   const [values, setValues] = useState({
-    firstName: '',
-    lastName: '',
-    occupation: '',
-    email: '',
+    firstName: user.firstName || '',
+    lastName: user.lastName || '',
+    occupation: user.occupation || '',
+    email: user.email || '',
     password: '',
   });
   const handleChange = (e) => {

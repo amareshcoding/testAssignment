@@ -54,7 +54,7 @@ const DetailPostView = () => {
 
   useEffect(() => {
     getSinglePost();
-  }, []);
+  }, []); //eslint-disable-line react-hooks/exhaustive-deps
 
   const patchLike = async () => {
     const response = await fetch(`${backUri}/post/like/${postId}`, {
@@ -95,7 +95,7 @@ const DetailPostView = () => {
       console.log('err: ', err);
     }
   };
-  
+
   return (
     <Box>
       <Navbar />

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   IconButton,
@@ -10,7 +10,6 @@ import {
   useTheme,
   useMediaQuery,
   Modal,
-  Button,
 } from '@mui/material';
 import {
   Search,
@@ -23,7 +22,7 @@ import {
   Close,
 } from '@mui/icons-material';
 import { useDispatch, useSelector } from 'react-redux';
-import { setMode, setLogout, setIsPostAvailable } from 'store';
+import { setMode, setLogout } from 'store';
 import { useNavigate } from 'react-router-dom';
 import FlexBetween from 'components/FlexBetween';
 import MyPostWidget from 'scenes/widgets/MyPostWidget';
@@ -115,9 +114,7 @@ const Navbar = () => {
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
-              <MyPostWidget
-                handleClose={handleClose}
-              />
+              <MyPostWidget handleClose={handleClose} />
             </Box>
           </Modal>
 

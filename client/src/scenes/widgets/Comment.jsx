@@ -3,7 +3,6 @@ import {
   ChatBubbleOutlineOutlined,
   FavoriteBorderOutlined,
   FavoriteOutlined,
-  ShareOutlined,
 } from '@mui/icons-material';
 import {
   Box,
@@ -15,10 +14,8 @@ import {
   useTheme,
 } from '@mui/material';
 import FlexBetween from 'components/FlexBetween';
-import Friend from 'components/Friend';
 import WidgetWrapper from 'components/WidgetWrapper';
-import { useDispatch, useSelector } from 'react-redux';
-import { setPost } from 'store';
+import { useSelector } from 'react-redux';
 import { backUri } from 'utils';
 
 const Comment = ({
@@ -57,6 +54,7 @@ const Comment = ({
     } else {
       setIsLiked(false);
     }
+    setFetchAgain(!fetchAgain);
   };
 
   const patchComment = async () => {
@@ -71,7 +69,7 @@ const Comment = ({
         body: JSON.stringify({ content: commentText, author: loggedInUserId }),
       }
     );
-    const updatedPosts = await response.json();
+    await response.json();
     setCommentText('');
     setFetchAgain(!fetchAgain);
   };
