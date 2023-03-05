@@ -8,7 +8,7 @@ import { setPosts } from 'store';
 import { Box } from '@mui/system';
 import { backUri } from 'utils';
 
-const MyPostWidget = () => {
+const MyPostWidget = ({ handleClose }) => {
   const dispatch = useDispatch();
   const [post, setPost] = useState('');
   const token = useSelector((state) => state.token);
@@ -19,12 +19,14 @@ const MyPostWidget = () => {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ content: post }),
     });
     const posts = await response.json();
     dispatch(setPosts({ posts }));
     setPost('');
+    handleClose();
   };
 
   return (

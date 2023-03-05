@@ -115,7 +115,9 @@ const Navbar = () => {
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
-              <MyPostWidget picturePath={user.picturePath} />
+              <MyPostWidget
+                handleClose={handleClose}
+              />
             </Box>
           </Modal>
 
