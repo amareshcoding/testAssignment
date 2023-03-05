@@ -7,7 +7,7 @@ import PostWidget from './PostWidget';
 const PostsWidget = ({ userId, isProfile = false }) => {
   const [fetchAgain, setFetchAgain] = useState(false);
   const dispatch = useDispatch();
-  const posts = useSelector((state) => state.posts);
+  var posts = useSelector((state) => state.posts);
   const token = useSelector((state) => state.token);
 
   const getPosts = async () => {
@@ -18,7 +18,8 @@ const PostsWidget = ({ userId, isProfile = false }) => {
       },
     });
     const data = await response.json();
-    dispatch(setPosts({ posts: data }));
+    const dataArr = data.reverse();
+    dispatch(setPosts({ posts: dataArr }));
   };
 
   useEffect(() => {

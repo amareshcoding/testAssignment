@@ -32,10 +32,10 @@ const ProfilePage = () => {
   }, []); //eslint-disable-line react-hooks/exhaustive-deps
 
   const [values, setValues] = useState({
-    firstName: user.firstName || '',
-    lastName: user.lastName || '',
-    occupation: user.occupation || '',
-    email: user.email || '',
+    firstName: user?.firstName || '',
+    lastName: user?.lastName || '',
+    occupation: user?.occupation || '',
+    email: user?.email || '',
     password: '',
   });
   const handleChange = (e) => {

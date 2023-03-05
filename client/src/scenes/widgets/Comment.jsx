@@ -28,12 +28,13 @@ const Comment = ({
   fetchAgain,
   setFetchAgain,
 }) => {
-  console.log('author: ', author);
   const [isComment, setIsComment] = useState(false);
   const [commentText, setCommentText] = useState('');
+  const user = useSelector((state) => state.user);
   const token = useSelector((state) => state.token);
   const loggedInUserId = useSelector((state) => state.user._id);
-  const [isLiked, setIsLiked] = useState(false);
+  const isLikedByLoggedInUser = likes.includes(user._id);
+  const [isLiked, setIsLiked] = useState(isLikedByLoggedInUser);
 
   const { palette } = useTheme();
   const main = palette.neutral.main;
@@ -94,7 +95,7 @@ const Comment = ({
               )}
             </IconButton>
 
-            <Typography>{isLiked ? likes.length + 1 : likes.length}</Typography>
+            <Typography>{likes.length}</Typography>
           </FlexBetween>
 
           <FlexBetween gap="0.3rem">
